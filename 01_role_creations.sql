@@ -1,0 +1,1 @@
+   create or replace role agentic_analytics_vhol_role;
