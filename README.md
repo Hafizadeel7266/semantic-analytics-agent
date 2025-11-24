@@ -5,7 +5,7 @@ This project builds **autonomous data agents** capable of interpreting business 
 
 ---
 
-## 🚀 What You’ll Build
+## 🚀 What I’ll Build
 
 An end-to-end **Agentic Analytics** solution that includes:
 
