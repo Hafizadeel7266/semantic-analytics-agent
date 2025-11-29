@@ -1,15 +1,21 @@
-use database SV_VHOL_DB;
-USE SCHEMA VHOL_SCHEMA;
-CREATE OR REPLACE FILE FORMAT CSV_FORMAT
-        TYPE = 'CSV'
-        FIELD_DELIMITER = ','
-        RECORD_DELIMITER = '\n'
-        SKIP_HEADER = 1
-        FIELD_OPTIONALLY_ENCLOSED_BY = '"'
-        TRIM_SPACE = TRUE
-        ERROR_ON_COLUMN_COUNT_MISMATCH = FALSE
-        ESCAPE = 'NONE'
-        ESCAPE_UNENCLOSED_FIELD = '\134'
-        DATE_FORMAT = 'YYYY-MM-DD'
-        TIMESTAMP_FORMAT = 'YYYY-MM-DD HH24:MI:SS'
-        NULL_IF = ('NULL', 'null', '', 'N/A', 'n/a');
+use database sf_agents_db;
+        
+        use schema file_format_schemas;
+              -- Create a CSV File Format for structured data files
+                create or replace file format csv_format
+                        type = 'CSV'
+                        field_delimiter = ','
+                        record_delimiter = '\n'
+                        skip_header = 1
+                        field_optionally_enclosed_by = '"'
+                        trim_space = true
+                        error_on_column_count_mismatch = false
+                        escape = 'NONE'
+                        escape_unenclosed_field = '\134'
+                        date_format = 'YYYY-MM-DD'
+                        timestamp_format = 'YYYY-MM-DD HH24:MI:SS'
+                        null_if = ('NULL', 'null', '', 'N/A', 'n/a');
+                -- Verify File Format Creation
+                describe file format csv_format;
+                show file formats like 'csv_format';
+

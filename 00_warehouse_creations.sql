@@ -1,4 +1,7 @@
-    CREATE OR REPLACE WAREHOUSE agentic_analytics_vhol_wh 
-        WITH WAREHOUSE_SIZE = 'XSMALL'
-        AUTO_SUSPEND = 300
-        AUTO_RESUME = TRUE;
+create or replace warehouse if not exists Intelligence_wh
+    with warehouse_size = 'XSMALL'
+    auto_suspend = 300 
+    auto_resume = true
+    initially_suspended = true
+    comment = 'Warehouse for Snowflake Intelligence Agent';
+   

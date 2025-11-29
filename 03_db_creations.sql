@@ -1,2 +1,2 @@
-CREATE DATABASE IF NOT EXISTS agentic_analytics_vhol;
-CREATE DATABASE IF NOT EXISTS SV_VHOL_DB;
+create database if not exists snowflake_intelligence_db;
+create database if not exists sf_agents_db;

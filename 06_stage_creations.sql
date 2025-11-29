@@ -1,8 +1,10 @@
-use database SV_VHOL_DB;
-USE SCHEMA VHOL_SCHEMA;
-
-     CREATE OR REPLACE STAGE INTERNAL_DATA_STAGE
-        FILE_FORMAT = CSV_FORMAT
-        COMMENT = 'Internal stage for copied demo data files'
-        DIRECTORY = ( ENABLE = TRUE)
-        ENCRYPTION = (   TYPE = 'SNOWFLAKE_SSE');
+use database sf_agents_db;
+  
+   use schema agents_storage;
+    
+      -- Create an internal stage to hold copied data files
+      create stage if not exists internal_data_stage
+         file_format = sf_agents_db.file_format_schemas.csv_format
+         comment = 'Internal stage for copied demo data files'
+         directory = ( enable = true)
+         encryption = (   type = 'snowflake_sse');

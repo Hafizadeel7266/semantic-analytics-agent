@@ -1,20 +1,19 @@
-use database SV_VHOL_DB;
-USE SCHEMA VHOL_SCHEMA;
+use database SF_agents_db;
+  
+    use schema agents_storage;
+    -- Load structured data files into internal stage
+        copy files
+            into @internal_data_stage/data/sturctured_data/
+            from @sf_agents_db.git_integration.semantic-analytics-agent_repo/branches/main/data/;
+        --- Verify files were copied
+        alert stage internal_data_stage refresh;
+        ls @internal_data_stage/sturctured_data;   
 
-COPY FILES
-    INTO @INTERNAL_DATA_STAGE/data/
-    FROM @SV_VHOL_DB.GITHUB.github_repo/branches/main/data/;
-
-    LS @INTERNAL_DATA_STAGE;
-
-    ALTER STAGE INTERNAL_DATA_STAGE refresh;
-
-    COPY FILES
-    INTO @INTERNAL_DATA_STAGE/data/unstructured_docs/
-    FROM @SV_VHOL_DB.GITHUB.AA_VHOL_REPO/branches/main/unstructured_docs/;
-
-
-
+    -- Load unstructured documents into internal stage
+        copy files
+            into @internal_data_stage/data/unstructured_data/
+            from @sf_agents_db.git_integration.semantic-analytics-agent_repo/branches/main/unstructured_data/;  
 
     -- Verify files were copied
-    LS @INTERNAL_DATA_STAGE/unstructured_docs;
+        alert stage internal_data_stage refresh;    
+        ls @internal_data_stage/unstructured_data;
