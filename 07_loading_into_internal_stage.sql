@@ -4,15 +4,15 @@ use database SF_agents_db;
     -- Load structured data files into internal stage
         copy files
             into @internal_data_stage/data/sturctured_data/
-            from @sf_agents_db.git_integration.semantic-analytics-agent_repo/branches/main/data/;
+            from @sf_agents_db.git_integration.semantic_analytics_agent_repo/branches/main/data/sturctured_data/;
         --- Verify files were copied
         alert stage internal_data_stage refresh;
-        ls @internal_data_stage/sturctured_data;   
+        ls @internal_data_stage/data/sturctured_data;   
 
     -- Load unstructured documents into internal stage
         copy files
             into @internal_data_stage/data/unstructured_data/
-            from @sf_agents_db.git_integration.semantic-analytics-agent_repo/branches/main/unstructured_data/;  
+            from @sf_agents_db.git_integration.semantic_analytics_agent_repo/branches/main/unstructured_data/;  
 
     -- Verify files were copied
         alert stage internal_data_stage refresh;    
