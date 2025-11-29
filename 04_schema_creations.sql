@@ -1,6 +1,5 @@
-CREATE SCHEMA IF NOT EXISTS agentic_analytics_vhol.agents;
+use database sf_agents_db;
 
-
-   USE DATABASE SV_VHOL_DB;
-
-    CREATE SCHEMA IF NOT EXISTS VHOL_SCHEMA;
+   create schema if not exists git_integration;
+   create schema if not exists file_format_schemas;
+   create schema if not exists agents_storage;
