@@ -6,7 +6,7 @@ use schema git_integration;
     CREATE OR REPLACE SECRET github_oauth_app_secret
           TYPE = PASSWORD
           USERNAME = 'Hafizadeel7266'  
-          PASSWORD = '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'  --name:snowflake-semantic-analytics-agent-pipeline tocken no expiration date
+          PASSWORD = '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'  --name:snowflake-semantic-analytics-agent-pipeline tocken 90 days expiration date
           COMMENT = 'GitHub OAuth App Secret'
           ; 
 
